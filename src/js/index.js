@@ -6,21 +6,27 @@ const cartoes = document.querySelectorAll(".cartao");
 btnAvancar.addEventListener("click", function () {
     if (cartaoAtual === cartoes.length - 1) return;
 
-    const cartaoSelecionado = document.querySelector(".selecionado");
-    cartaoSelecionado.classList.remove("selecionado");
+    removerClassSelecionado();
 
     cartaoAtual++;
 
-    cartoes[cartaoAtual].classList.add("selecionado");
+    addClassSelecionado();
 });
 
 btnVoltar.addEventListener("click", function () {
     if (cartaoAtual === 0) return;
 
-    const cartaoSelecionado = document.querySelector(".selecionado");
-    cartaoSelecionado.classList.remove("selecionado");
+    removerClassSelecionado();
 
     cartaoAtual--;
 
-    cartoes[cartaoAtual].classList.add("selecionado");
+    addClassSelecionado();
 });
+function addClassSelecionado() {
+    cartoes[cartaoAtual].classList.add("selecionado");
+}
+
+function removerClassSelecionado() {
+    const cartaoSelecionado = document.querySelector(".selecionado");
+    cartaoSelecionado.classList.remove("selecionado");
+}
